@@ -6,7 +6,7 @@ const Navbar = () => {
         <div className='navbar'>
             <div className="navbar__container">
                 <div className="navbar__logo">
-                    BookingDotCom
+                    bookingDotCom
                 </div>
                 <div className="navbar__items">
                     <button className="navbar__button">
