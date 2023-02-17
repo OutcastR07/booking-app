@@ -1,6 +1,6 @@
 .navbar {
     height: 50px;
-    background-color: #755139FF;
+    background-color: #011936FF;
     display: flex;
     justify-content: center;
 }
@@ -8,7 +8,7 @@
 .navbar__container {
     width: 100%;
     max-width: 1024px;
-    color: #F2EDD7FF;
+    color: #F4FFFDFF;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,6 +24,6 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    color: #755139FF;
-    background-color: #F2EDD7FF;
+    color: #011936FF;
+    background-color: #F4FFFDFF;
 }
