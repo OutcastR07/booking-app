@@ -1,6 +1,6 @@
 .header {
     background-color: #011936FF;
-    color: #F4FFFDFF;
+    color: white;
     display: flex;
     justify-content: center;
     position: relative;
@@ -30,7 +30,7 @@
 }
 
 .header__listItem.active {
-    border: 1px solid #F4FFFDFF;
+    border: 1px solid white;
     padding: 5px;
     border-radius: 5px;
 }
@@ -41,7 +41,7 @@
 
 .header__button {
     background-color: #56A8CBFF;
-    color: #F4FFFDFF;
+    color: white;
     font-weight: 500;
     border: none;
     padding: 10px;
@@ -60,7 +60,7 @@
     position: absolute;
     bottom: -25px;
     width: 100%;
-    max-width: 1024px;
+    max-width: 1000px;
 }
 
 .header__icon {

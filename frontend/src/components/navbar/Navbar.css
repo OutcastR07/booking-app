@@ -8,7 +8,7 @@
 .navbar__container {
     width: 100%;
     max-width: 1024px;
-    color: #F4FFFDFF;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,5 +25,5 @@
     padding: 5px 10px;
     cursor: pointer;
     color: #011936FF;
-    background-color: #F4FFFDFF;
+    background-color: white;
 }

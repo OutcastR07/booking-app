@@ -12,9 +12,11 @@ import { useState } from 'react';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
+import { useNavigate } from "react-router-dom"
 
 const Header = ({ type }) => {
 
+    const [destination, setDestination] = useState("");
     const [openCalendar, setOpenCalendar] = useState(false);
     const [date, setDate] = useState([
         {
@@ -30,6 +32,8 @@ const Header = ({ type }) => {
         room: 0,
     })
 
+    const navigate = useNavigate()
+
     const handleOption = (name, operation) => {
         setOptions((prev) => {
             return {
@@ -37,6 +41,10 @@ const Header = ({ type }) => {
                 [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
             }
         })
+    }
+
+    const handleSearch = () => {
+        navigate("/hotels", { state: { destination, date, options } })
     }
 
     return (
@@ -80,7 +88,9 @@ const Header = ({ type }) => {
                                 <HotelIcon className='header__icon' />
                                 <input
                                     type="text"
-                                    placeholder='Your destination' className='header__searchInput'
+                                    placeholder='Your destination'
+                                    className='header__searchInput'
+                                    onChange={e => setDestination(e.target.value)}
                                 />
                             </div>
                             <div className="header__searchItem">
@@ -94,6 +104,7 @@ const Header = ({ type }) => {
                                     editableDateInputs={true}
                                     onChange={item => setDate([item.selection])}
                                     moveRangeOnFirstSelection={false}
+                                    minDate={new Date()}
                                     ranges={date}
                                     className="date"
                                 />}
@@ -169,7 +180,7 @@ const Header = ({ type }) => {
                                 </div>}
                             </div>
                             <div className="header__searchItem">
-                                <button className='header__button'>Search</button>
+                                <button className='header__button' onClick={handleSearch}>Search</button>
                             </div>
                         </div>
                     </>
