@@ -57,12 +57,12 @@ const Hotel = () => {
             <div className="hotel__container">
                 {open &&
                     <div className="slider">
-                        <CancelIcon className='close' onClick={() => setOpen(false)} />
-                        <ArrowBackIcon className='arrow' onClick={() => handleMove("l")} />
+                        <CancelIcon style={{ width: "30px", height: "30px" }} className='close' onClick={() => setOpen(false)} />
+                        <ArrowBackIcon style={{ width: "50px", height: "50px" }} className='arrow' onClick={() => handleMove("l")} />
                         <div className="slider__wrapper">
                             <img src={photos[slideNumber].src} alt="" className="slider__img" />
                         </div>
-                        <ArrowForwardIcon className='arrow' onClick={() => handleMove("r")} />
+                        <ArrowForwardIcon style={{ width: "50px", height: "50px" }} className='arrow' onClick={() => handleMove("r")} />
                     </div>}
                 <div className="hotel__wrapper">
                     <button className='hotel__reserve'>Reserve</button>
