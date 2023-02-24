@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Navbar from '../../components/navbar/Navbar'
 import SearchItem from '../../components/searchItem/SearchItem'
+import useFetch from '../../hooks/useFetch'
 import './List.css'
 
 const List = () => {
@@ -14,6 +15,14 @@ const List = () => {
     const [date, setDate] = useState(location.state.date)
     const [openCalendar, setOpenCalendar] = useState(false)
     const [options, setOptions] = useState(location.state.options)
+    const [min, setMin] = useState(undefined)
+    const [max, setMax] = useState(undefined)
+
+    const { data, loading, error, reFetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`);
+
+    const handleClick = () => {
+        reFetch()
+    }
 
     return (
         <div>
@@ -45,13 +54,13 @@ const List = () => {
                                     <span className="list__searchOptionText">
                                         Min Price <small>per night</small>
                                     </span>
-                                    <input type="number" className="list__searchOptionInput" />
+                                    <input type="number" onChange={e => setMin(e.target.value)} className="list__searchOptionInput" />
                                 </div>
                                 <div className="list__searchOptionItem">
                                     <span className="list__searchOptionText">
                                         Max Price <small>per night</small>
                                     </span>
-                                    <input type="number" className="list__searchOptionInput" />
+                                    <input type="number" onChange={e => setMax(e.target.value)} className="list__searchOptionInput" />
                                 </div>
                                 <div className="list__searchOptionItem">
                                     <span className="list__searchOptionText">
@@ -88,19 +97,14 @@ const List = () => {
                                 </div>
                             </div>
                         </div>
-                        <button>Search</button>
+                        <button onClick={handleClick}>Search</button>
                     </div>
                     <div className="list__result">
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
+                        {loading ? "loading" : <>
+                            {data.map(item => (
+                                <SearchItem item={item} key={item._id} />
+                            ))}
+                        </>}
                     </div>
                 </div>
             </div>

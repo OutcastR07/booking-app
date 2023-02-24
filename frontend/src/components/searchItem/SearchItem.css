@@ -24,6 +24,7 @@
 .search__itemTitle {
     font-size: 20px;
     color: #011936FF;
+    text-transform: capitalize;
 }
 
 .search__itemDistance {
