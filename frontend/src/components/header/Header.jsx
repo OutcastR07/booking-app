@@ -14,6 +14,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
 import { useNavigate } from "react-router-dom"
 import { SearchContext } from '../../context/SearchContext';
+import { AuthContext } from '../../context/AuthContext';
 
 const Header = ({ type }) => {
 
@@ -34,6 +35,7 @@ const Header = ({ type }) => {
     })
 
     const navigate = useNavigate()
+    const { user } = useContext(AuthContext);
 
     const handleOption = (name, operation) => {
         setOptions((prev) => {
@@ -84,9 +86,9 @@ const Header = ({ type }) => {
                         <p className='header__description'>
                             Get rewarded for booking - unlock instant savings of 10% or more with a free bookingDotCom account.
                         </p>
-                        <button className="header__button">
+                        {!user && <button className="header__button">
                             Sign in / Register
-                        </button>
+                        </button>}
                         <div className="header__search">
                             <div className="header__searchItem">
                                 <HotelIcon className='header__icon' />
