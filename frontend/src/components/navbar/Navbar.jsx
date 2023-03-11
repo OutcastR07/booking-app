@@ -15,14 +15,22 @@ const Navbar = () => {
                         bookingDotCom
                     </span>
                 </Link>
-                {user ? (user.username) : (<div className="navbar__items">
-                    <button className="navbar__button">
-                        Register
-                    </button>
-                    <button className="navbar__button">
-                        Login
-                    </button>
-                </div>)}
+                {user ? (
+                    <div>
+                        {(user.username)}
+                        <button className="navbar__button">
+                            Logout
+                        </button>
+                    </div>
+                ) : (
+                    <div className="navbar__items">
+                        <button className="navbar__button">
+                            Register
+                        </button>
+                        <button className="navbar__button">
+                            Login
+                        </button>
+                    </div>)}
             </div>
         </div>
     )
