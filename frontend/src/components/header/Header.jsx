@@ -86,9 +86,11 @@ const Header = ({ type }) => {
                         <p className='header__description'>
                             Get rewarded for booking - unlock instant savings of 10% or more with a free bookingDotCom account.
                         </p>
-                        {!user && <button className="header__button">
-                            Sign in / Register
-                        </button>}
+                        {
+                            !user && <button className="header__button">
+                                Sign in / Register
+                            </button>
+                        }
                         <div className="header__search">
                             <div className="header__searchItem">
                                 <HotelIcon className='header__icon' />

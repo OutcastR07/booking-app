@@ -20,7 +20,7 @@
     right: 0px;
     border: none;
     padding: 10px 20px;
-    background-color: #56A8CBFF;
+    background-color: #0071c2;
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -39,7 +39,7 @@
 }
 
 .hotel__distance {
-    color: #56A8CBFF;
+    color: #0071c2;
     font-weight: 500;
 }
 
@@ -105,7 +105,7 @@
 .hotel__detailsPrice>button {
     border: none;
     padding: 10px 20px;
-    background-color: #56A8CBFF;
+    background-color: #0071c2;
     color: white;
     font-weight: bold;
     border-radius: 5px;
